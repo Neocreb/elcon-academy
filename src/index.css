@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* EduPortal Design System - School Portal Theme
+All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 23% 97%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 221 83% 33%;
     --primary-foreground: 210 40% 98%;
+    --primary-light: 221 70% 50%;
+    --primary-glow: 221 60% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 221 83% 33%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 212 100% 47%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
 
-    --radius: 0.5rem;
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 25% 15%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 33%;
+
+    --radius: 0.75rem;
+
+    /* Educational specific colors */
+    --grade-excellent: 142 71% 45%;
+    --grade-good: 122 39% 49%;
+    --grade-average: 38 92% 50%;
+    --grade-poor: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--primary-glow)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(220 13% 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 4px 12px -2px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +128,76 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
   }
+}
+
+@layer components {
+  /* Educational Portal Components */
+  .card-gradient {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-light text-primary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-muted text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .grade-excellent {
+    @apply text-success bg-success/10 border-success/20;
+  }
+
+  .grade-good {
+    color: hsl(var(--grade-good));
+    background-color: hsl(var(--grade-good) / 0.1);
+    border-color: hsl(var(--grade-good) / 0.2);
+  }
+
+  .grade-average {
+    @apply text-warning bg-warning/10 border-warning/20;
+  }
+
+  .grade-poor {
+    @apply text-destructive bg-destructive/10 border-destructive/20;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-muted;
+  }
+
+  .sidebar-item.active {
+    @apply bg-primary text-primary-foreground hover:bg-primary-light;
+  }
+
+  .stats-card {
+    @apply p-6 rounded-xl border transition-all duration-300 hover:shadow-lg;
+    background: var(--gradient-card);
+  }
+
+  .input-floating {
+    @apply relative;
+  }
+
+  .input-floating input {
+    @apply w-full px-4 pt-6 pb-2 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .input-floating label {
+    @apply absolute left-4 top-4 text-muted-foreground transition-all duration-200 pointer-events-none;
+  }
+
+  .input-floating input:focus + label,
+  .input-floating input:not(:placeholder-shown) + label {
+    @apply text-xs top-2 text-primary;
+  }
+}
 }
