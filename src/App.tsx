@@ -8,6 +8,15 @@ import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { Layout } from "@/components/layout/Layout";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Courses from "./pages/Courses";
+import Assignments from "./pages/Assignments";
+import Grades from "./pages/Grades";
+import Timetable from "./pages/Timetable";
+import Attendance from "./pages/Attendance";
+import Payments from "./pages/Payments";
+import Messages from "./pages/Messages";
+import Profile from "./pages/Profile";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +46,96 @@ const App = () => (
                 <ProtectedRoute>
                   <Layout>
                     <Dashboard />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/courses" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Courses />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/assignments" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Assignments />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/grades" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Grades />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/timetable" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Timetable />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/attendance" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Attendance />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/payments" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Payments />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/messages" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Messages />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Profile />
+                  </Layout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/support" 
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Support />
                   </Layout>
                 </ProtectedRoute>
               } 
