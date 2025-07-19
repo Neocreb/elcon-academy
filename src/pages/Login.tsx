@@ -59,14 +59,14 @@ const Login = () => {
       <div className="w-full max-w-md space-y-6">
         {/* Logo */}
         <div className="text-center">
-          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4">
+          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 animate-scale-in">
             <GraduationCap className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground">EduPortal</h1>
-          <p className="text-muted-foreground">Welcome back to your school portal</p>
+          <h1 className="text-3xl font-bold text-foreground animate-fade-in">ELCON Academy</h1>
+          <p className="text-muted-foreground animate-fade-in animation-delay-200">Welcome back to your school portal</p>
         </div>
 
-        <Card className="card-gradient border-border/50">
+        <Card className="card-gradient border-border/50 animate-fade-in animation-delay-400 hover-scale">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-semibold">Sign in</CardTitle>
             <CardDescription>
@@ -131,7 +131,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full btn-primary" disabled={isLoading}>
+              <Button type="submit" className="w-full btn-primary hover-scale" disabled={isLoading}>
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </Button>
             </form>
@@ -146,7 +146,7 @@ const Login = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => fillDemoCredentials(demoRole)}
-                    className="text-xs capitalize"
+                    className="text-xs capitalize hover-scale"
                   >
                     Demo {demoRole}
                   </Button>

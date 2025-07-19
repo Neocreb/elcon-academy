@@ -199,4 +199,22 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
   .input-floating input:not(:placeholder-shown) + label {
     @apply text-xs top-2 text-primary;
   }
+
+  /* Animation Delays */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  }
 }
