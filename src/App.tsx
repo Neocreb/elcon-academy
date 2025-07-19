@@ -18,6 +18,14 @@ import Payments from "./pages/Payments";
 import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
 import Support from "./pages/Support";
+import Classes from "./pages/Classes";
+import Users from "./pages/Users";
+import Reports from "./pages/Reports";
+import Announcements from "./pages/Announcements";
+import Finance from "./pages/Finance";
+import Calendar from "./pages/Calendar";
+import Progress from "./pages/Progress";
+import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -132,6 +140,14 @@ const App = () => (
                 </ProtectedRoute>
               } 
             />
+            <Route path="/classes" element={<ProtectedRoute><Layout><Classes /></Layout></ProtectedRoute>} />
+            <Route path="/users" element={<ProtectedRoute><Layout><Users /></Layout></ProtectedRoute>} />
+            <Route path="/reports" element={<ProtectedRoute><Layout><Reports /></Layout></ProtectedRoute>} />
+            <Route path="/announcements" element={<ProtectedRoute><Layout><Announcements /></Layout></ProtectedRoute>} />
+            <Route path="/finance" element={<ProtectedRoute><Layout><Finance /></Layout></ProtectedRoute>} />
+            <Route path="/calendar" element={<ProtectedRoute><Layout><Calendar /></Layout></ProtectedRoute>} />
+            <Route path="/progress" element={<ProtectedRoute><Layout><Progress /></Layout></ProtectedRoute>} />
+            <Route path="/events" element={<ProtectedRoute><Layout><Events /></Layout></ProtectedRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
