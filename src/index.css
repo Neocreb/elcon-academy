@@ -8,45 +8,38 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 
 @layer base {
   :root {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 47.9 95.8% 53.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: 240 23% 97%;
+    --foreground: 215 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    --primary: 221 83% 33%;
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 221 70% 50%;
+    --primary-glow: 221 60% 65%;
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 221 83% 33%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 212 100% 47%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 33%;
     --radius: 0.75rem;
     
-    /* Enhanced gradients for Christian theme */
-    --gradient-divine: linear-gradient(135deg, hsl(47.9 95.8% 53.1%), hsl(60 100% 70%));
-    --gradient-heavenly: linear-gradient(135deg, hsl(220 100% 95%), hsl(47.9 95.8% 53.1%));
-    --gradient-peaceful: linear-gradient(180deg, hsl(var(--background)), hsl(47.9 95.8% 53.1% / 0.1));
+    /* Galactic academic gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(221 83% 33%), hsl(221 70% 50%), hsl(240 100% 95%));
+    --gradient-stellar: linear-gradient(180deg, hsl(240 23% 97%), hsl(221 83% 33% / 0.1));
+    --gradient-nebula: radial-gradient(ellipse at center, hsl(221 70% 50% / 0.3), transparent 70%);
     
-    /* Elegant shadows with golden glow */
-    --shadow-divine: 0 25px 50px -12px hsl(47.9 95.8% 53.1% / 0.25);
-    --shadow-soft: 0 10px 25px -5px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 30px hsl(47.9 95.8% 53.1% / 0.4);
-    
-    /* Animations */
-    --transition-divine: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s ease-out;
+    /* Academic shadows */
+    --shadow-stellar: 0 25px 50px -12px hsl(221 83% 33% / 0.15);
+    --shadow-cosmic: 0 0 40px hsl(221 70% 50% / 0.2);
+    --shadow-academic: 0 10px 25px -5px hsl(221 83% 33% / 0.1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -122,42 +115,55 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 }
 
 @layer components {
-  /* Enhanced component styles with divine theme */
+  /* Academic galactic theme */
   .btn-primary {
-    @apply bg-gradient-to-r from-primary via-primary to-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105;
-    box-shadow: var(--shadow-divine);
+    @apply bg-gradient-to-r from-primary via-primary-light to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 font-medium px-6 py-3 rounded-lg;
+    box-shadow: var(--shadow-stellar);
   }
 
-  .btn-heavenly {
-    @apply bg-gradient-to-r from-background/10 to-primary/20 text-primary border border-primary/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/30 transition-all duration-500 hover:scale-105;
-    box-shadow: var(--shadow-glow);
+  .btn-stellar {
+    @apply bg-gradient-to-r from-white/10 to-primary/20 text-primary border border-primary/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/30 transition-all duration-500 hover:scale-105;
+    box-shadow: var(--shadow-cosmic);
   }
 
   .card-gradient {
-    @apply bg-gradient-to-br from-card/80 via-card to-card/95 backdrop-blur-lg border border-border/50 hover:border-primary/20 transition-all duration-500;
-    box-shadow: var(--shadow-divine);
+    @apply bg-gradient-to-br from-white/80 via-white to-white/95 backdrop-blur-lg border border-border/50 hover:border-primary/20 transition-all duration-500;
+    box-shadow: var(--shadow-academic);
   }
 
-  .hero-glow {
-    @apply animate-pulse;
-    filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.3));
+  .cosmic-text {
+    @apply bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent;
   }
 
-  .divine-text {
-    @apply bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent animate-pulse;
+  .stellar-glow {
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3), 0 0 40px hsl(var(--primary-light) / 0.1);
   }
 
   .floating {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .cosmic-pulse {
+    animation: cosmicPulse 3s ease-in-out infinite;
+  }
+
+  .stellar-drift {
+    animation: stellarDrift 8s linear infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
   }
 
-  .golden-glow {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+  @keyframes cosmicPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes stellarDrift {
+    0% { transform: translateX(-100vw); }
+    100% { transform: translateX(100vw); }
   }
 
   .hover-scale {

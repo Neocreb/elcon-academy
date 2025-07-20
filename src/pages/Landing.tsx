@@ -38,23 +38,28 @@ const Landing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-primary/5 relative overflow-hidden">
-      {/* Animated background elements */}
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
+      {/* Galactic academic background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl floating"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 bg-primary/3 rounded-full blur-3xl floating" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary/4 rounded-full blur-3xl floating" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-gradient-radial from-primary/10 to-transparent rounded-full floating blur-2xl"></div>
+        <div className="absolute top-32 right-1/4 w-80 h-80 bg-gradient-radial from-primary-light/8 to-transparent rounded-full floating blur-2xl" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-gradient-radial from-primary-glow/6 to-transparent rounded-full floating blur-2xl" style={{animationDelay: '4s'}}></div>
+        
+        {/* Stellar particles */}
+        <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary/40 rounded-full stellar-drift" style={{animationDelay: '0s'}}></div>
+        <div className="absolute top-1/2 left-20 w-1 h-1 bg-primary-light/60 rounded-full stellar-drift" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-3/4 left-32 w-1.5 h-1.5 bg-primary-glow/50 rounded-full stellar-drift" style={{animationDelay: '6s'}}></div>
       </div>
 
       {/* Header */}
       <header className="container mx-auto px-4 py-6 relative z-10">
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-3 animate-fade-in">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center golden-glow">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center stellar-glow cosmic-pulse">
               <GraduationCap className="w-7 h-7 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold divine-text">ELCON Academy</h1>
+              <h1 className="text-xl font-bold cosmic-text">ELCON Academy</h1>
               <p className="text-xs text-muted-foreground">Building Young People in God's Light</p>
             </div>
           </div>
@@ -80,7 +85,7 @@ const Landing = () => {
           
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 animate-fade-in animation-delay-200">
             Welcome to{' '}
-            <span className="divine-text hero-glow">
+            <span className="cosmic-text cosmic-pulse">
               ELCON Academy
             </span>
           </h1>
@@ -103,7 +108,7 @@ const Landing = () => {
             </Button>
             <Button 
               size="lg" 
-              className="btn-heavenly text-lg px-12 py-6"
+              className="btn-stellar text-lg px-12 py-6"
             >
               <Globe className="w-5 h-5 mr-2" />
               Learn More
