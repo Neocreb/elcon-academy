@@ -8,63 +8,45 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 
 @layer base {
   :root {
-    --background: 240 23% 97%;
-    --foreground: 215 25% 15%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
-
-    --primary: 221 83% 33%;
-    --primary-foreground: 210 40% 98%;
-    --primary-light: 221 70% 50%;
-    --primary-glow: 221 60% 65%;
-
-    --secondary: 220 13% 95%;
-    --secondary-foreground: 221 83% 33%;
-
-    --muted: 220 13% 95%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 212 100% 47%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --success: 142 71% 45%;
-    --success-foreground: 210 40% 98%;
-
-    --warning: 38 92% 50%;
-    --warning-foreground: 215 25% 15%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 221 83% 33%;
-
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 47.9 95.8% 53.1%;
+    --primary-foreground: 26 83.3% 14.1%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 47.9 95.8% 53.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
     --radius: 0.75rem;
-
-    /* Educational specific colors */
-    --grade-excellent: 142 71% 45%;
-    --grade-good: 122 39% 49%;
-    --grade-average: 38 92% 50%;
-    --grade-poor: 0 84% 60%;
-
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--primary-glow)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(220 13% 98%) 100%);
-
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 4px 12px -2px hsl(var(--primary) / 0.08);
-    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
-
+    
+    /* Enhanced gradients for Christian theme */
+    --gradient-divine: linear-gradient(135deg, hsl(47.9 95.8% 53.1%), hsl(60 100% 70%));
+    --gradient-heavenly: linear-gradient(135deg, hsl(220 100% 95%), hsl(47.9 95.8% 53.1%));
+    --gradient-peaceful: linear-gradient(180deg, hsl(var(--background)), hsl(47.9 95.8% 53.1% / 0.1));
+    
+    /* Elegant shadows with golden glow */
+    --shadow-divine: 0 25px 50px -12px hsl(47.9 95.8% 53.1% / 0.25);
+    --shadow-soft: 0 10px 25px -5px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 30px hsl(47.9 95.8% 53.1% / 0.4);
+    
     /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-divine: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -84,33 +66,40 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 60 9.1% 97.8%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 60 9.1% 97.8%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 60 9.1% 97.8%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20.5 90.2% 48.2%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    /* Light mode gradients */
+    --gradient-divine: linear-gradient(135deg, hsl(20.5 90.2% 48.2%), hsl(45 100% 60%));
+    --gradient-heavenly: linear-gradient(135deg, hsl(20.5 90.2% 48.2% / 0.1), hsl(45 100% 95%));
+    --gradient-peaceful: linear-gradient(180deg, hsl(var(--background)), hsl(20.5 90.2% 48.2% / 0.05));
+    
+    /* Light mode shadows */
+    --shadow-divine: 0 25px 50px -12px hsl(20.5 90.2% 48.2% / 0.15);
+    --shadow-soft: 0 10px 25px -5px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 30px hsl(20.5 90.2% 48.2% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -133,87 +122,55 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 }
 
 @layer components {
-  /* Educational Portal Components */
-  .card-gradient {
-    background: var(--gradient-card);
-    box-shadow: var(--shadow-card);
-  }
-
+  /* Enhanced component styles with divine theme */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-light text-primary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-300;
-    box-shadow: var(--shadow-soft);
+    @apply bg-gradient-to-r from-primary via-primary to-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105;
+    box-shadow: var(--shadow-divine);
   }
 
-  .btn-secondary {
-    @apply bg-secondary hover:bg-muted text-secondary-foreground font-medium px-6 py-3 rounded-lg transition-colors duration-300;
+  .btn-heavenly {
+    @apply bg-gradient-to-r from-background/10 to-primary/20 text-primary border border-primary/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/30 transition-all duration-500 hover:scale-105;
+    box-shadow: var(--shadow-glow);
   }
 
-  .hero-gradient {
-    background: var(--gradient-hero);
+  .card-gradient {
+    @apply bg-gradient-to-br from-card/80 via-card to-card/95 backdrop-blur-lg border border-border/50 hover:border-primary/20 transition-all duration-500;
+    box-shadow: var(--shadow-divine);
   }
 
-  .grade-excellent {
-    @apply text-success bg-success/10 border-success/20;
+  .hero-glow {
+    @apply animate-pulse;
+    filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.3));
   }
 
-  .grade-good {
-    color: hsl(var(--grade-good));
-    background-color: hsl(var(--grade-good) / 0.1);
-    border-color: hsl(var(--grade-good) / 0.2);
+  .divine-text {
+    @apply bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent animate-pulse;
   }
 
-  .grade-average {
-    @apply text-warning bg-warning/10 border-warning/20;
+  .floating {
+    animation: float 3s ease-in-out infinite;
   }
 
-  .grade-poor {
-    @apply text-destructive bg-destructive/10 border-destructive/20;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 
-  .sidebar-item {
-    @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-muted;
+  .golden-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
   }
 
-  .sidebar-item.active {
-    @apply bg-primary text-primary-foreground hover:bg-primary-light;
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
   }
 
-  .stats-card {
-    @apply p-6 rounded-xl border transition-all duration-300 hover:shadow-lg;
-    background: var(--gradient-card);
-  }
-
-  .input-floating {
-    @apply relative;
-  }
-
-  .input-floating input {
-    @apply w-full px-4 pt-6 pb-2 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary;
-  }
-
-  .input-floating label {
-    @apply absolute left-4 top-4 text-muted-foreground transition-all duration-200 pointer-events-none;
-  }
-
-  .input-floating input:focus + label,
-  .input-floating input:not(:placeholder-shown) + label {
-    @apply text-xs top-2 text-primary;
-  }
-
-  /* Animation Delays */
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-  
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-  
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-  
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
+  /* Animation utility classes */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
 }
