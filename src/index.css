@@ -8,45 +8,38 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 23% 97%;
+    --foreground: 215 25% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --popover-foreground: 215 25% 15%;
+    --primary: 221 83% 33%;
     --primary-foreground: 210 40% 98%;
-    --primary-light: 213 94% 68%;
-    --primary-glow: 217 91% 74%;
-    --primary-dark: 221.2 83.2% 43.3%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
+    --primary-light: 221 70% 50%;
+    --primary-glow: 221 60% 65%;
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 221 83% 33%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 212 100% 47%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 33%;
     --radius: 0.75rem;
-
-    /* Professional gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary-light) / 0.05) 50%, hsl(var(--background)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary) / 0.3) 100%);
     
-    /* Professional shadows */
-    --shadow-sm: 0 2px 8px hsl(var(--primary) / 0.08);
-    --shadow-md: 0 8px 25px hsl(var(--primary) / 0.12);
-    --shadow-lg: 0 20px 40px hsl(var(--primary) / 0.15);
-    --shadow-xl: 0 25px 50px hsl(var(--primary) / 0.2);
+    /* Galactic academic gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(221 83% 33%), hsl(221 70% 50%), hsl(240 100% 95%));
+    --gradient-stellar: linear-gradient(180deg, hsl(240 23% 97%), hsl(221 83% 33% / 0.1));
+    --gradient-nebula: radial-gradient(ellipse at center, hsl(221 70% 50% / 0.3), transparent 70%);
     
-    /* Glass morphism */
-    --glass-bg: hsl(var(--background) / 0.85);
-    --glass-border: hsl(var(--border) / 0.2);
+    /* Academic shadows */
+    --shadow-stellar: 0 25px 50px -12px hsl(221 83% 33% / 0.15);
+    --shadow-cosmic: 0 0 40px hsl(221 70% 50% / 0.2);
+    --shadow-academic: 0 10px 25px -5px hsl(221 83% 33% / 0.1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -122,64 +115,28 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 }
 
 @layer components {
-  /* Professional Effects */
-  .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-md);
+  /* Academic galactic theme */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary via-primary-light to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 font-medium px-6 py-3 rounded-lg;
+    box-shadow: var(--shadow-stellar);
   }
 
-  .hero-gradient {
-    background: var(--gradient-hero);
+  .btn-stellar {
+    @apply bg-gradient-to-r from-white/10 to-primary/20 text-primary border border-primary/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/30 transition-all duration-500 hover:scale-105;
+    box-shadow: var(--shadow-cosmic);
   }
 
   .card-gradient {
-    background: var(--gradient-card);
-    border: 1px solid hsl(var(--border) / 0.5);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-gradient:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-    border-color: hsl(var(--primary) / 0.2);
-  }
-
-  .text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-professional {
-    background: var(--gradient-primary);
-    color: hsl(var(--primary-foreground));
-    border: none;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .btn-professional:hover {
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-2px);
-  }
-
-  .section-divider {
-    background: linear-gradient(90deg, transparent 0%, hsl(var(--border)) 50%, transparent 100%);
-    height: 1px;
-  }
-
-  /* Legacy support */
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary via-primary-light to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 font-medium px-6 py-3 rounded-lg;
-    box-shadow: var(--shadow-md);
+    @apply bg-gradient-to-br from-white/80 via-white to-white/95 backdrop-blur-lg border border-border/50 hover:border-primary/20 transition-all duration-500;
+    box-shadow: var(--shadow-academic);
   }
 
   .cosmic-text {
     @apply bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent;
+  }
+
+  .stellar-glow {
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3), 0 0 40px hsl(var(--primary-light) / 0.1);
   }
 
   .floating {
