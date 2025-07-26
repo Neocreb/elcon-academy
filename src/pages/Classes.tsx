@@ -1,173 +1,175 @@
-import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Users, Clock, BookOpen, Calendar, MapPin, Plus } from 'lucide-react';
 
-const dummyClasses = [
-  {
-    id: 1,
-    name: 'Mathematics Grade 10',
-    code: 'MATH10A',
-    students: 28,
-    schedule: 'Mon, Wed, Fri - 9:00 AM',
-    room: 'Room 101',
-    subject: 'Mathematics',
-    color: 'bg-blue-100 text-blue-800'
-  },
-  {
-    id: 2,
-    name: 'Physics Grade 11',
-    code: 'PHYS11B', 
-    students: 24,
-    schedule: 'Tue, Thu - 10:30 AM',
-    room: 'Lab 201',
-    subject: 'Physics',
-    color: 'bg-green-100 text-green-800'
-  },
-  {
-    id: 3,
-    name: 'Chemistry Grade 12',
-    code: 'CHEM12A',
-    students: 22,
-    schedule: 'Mon, Wed - 2:00 PM',
-    room: 'Lab 301',
-    subject: 'Chemistry',
-    color: 'bg-purple-100 text-purple-800'
-  },
-  {
-    id: 4,
-    name: 'Mathematics Grade 11',
-    code: 'MATH11C',
-    students: 26,
-    schedule: 'Tue, Thu, Fri - 11:00 AM',
-    room: 'Room 102',
-    subject: 'Mathematics',
-    color: 'bg-blue-100 text-blue-800'
-  }
-];
+import React from 'react';
+import { useAuth } from '@/contexts/AuthContext';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { StatsGrid } from '@/components/common/StatsGrid';
+import { mockCourses, mockStudents, mockTeachers } from '@/data/mockData';
+import { 
+  BookOpen, 
+  Users, 
+  Clock, 
+  Calendar,
+  MapPin,
+  TrendingUp,
+  GraduationCap
+} from 'lucide-react';
 
 const Classes = () => {
+  const { user } = useAuth();
+
+  const stats = [
+    {
+      title: 'Active Classes',
+      value: mockCourses.filter(c => c.status === 'active').length,
+      icon: BookOpen,
+      color: 'primary' as const,
+      trend: { value: 5, label: 'this semester', isPositive: true }
+    },
+    {
+      title: 'Total Students',
+      value: mockCourses.reduce((sum, course) => sum + course.studentsEnrolled, 0),
+      icon: Users,
+      color: 'success' as const,
+      subtitle: 'Enrolled'
+    },
+    {
+      title: 'Average Enrollment',
+      value: '89%',
+      icon: TrendingUp,
+      color: 'accent' as const,
+      trend: { value: 12, label: 'vs last semester', isPositive: true }
+    },
+    {
+      title: 'Completion Rate',
+      value: '94%',
+      icon: GraduationCap,
+      color: 'warning' as const,
+      subtitle: 'This semester'
+    }
+  ];
+
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">My Classes</h1>
-          <p className="text-muted-foreground">Manage your classes and students</p>
-        </div>
-        <Button className="btn-primary hover-scale">
-          <Plus className="w-4 h-4 mr-2" />
-          Add New Class
-        </Button>
+      <div className="hero-gradient rounded-2xl p-8 text-white">
+        <h1 className="text-3xl font-bold mb-2">Class Management</h1>
+        <p className="text-white/90 text-lg">Manage courses, schedules, and enrollments</p>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="stats-card">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Classes</p>
-                <p className="text-3xl font-bold text-foreground">{dummyClasses.length}</p>
-              </div>
-              <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                <BookOpen className="h-6 w-6 text-primary" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="stats-card">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Students</p>
-                <p className="text-3xl font-bold text-foreground">
-                  {dummyClasses.reduce((sum, cls) => sum + cls.students, 0)}
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-success/10 rounded-lg flex items-center justify-center">
-                <Users className="h-6 w-6 text-success" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="stats-card">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Subjects</p>
-                <p className="text-3xl font-bold text-foreground">3</p>
-              </div>
-              <div className="h-12 w-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                <BookOpen className="h-6 w-6 text-accent" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="stats-card">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Avg. Class Size</p>
-                <p className="text-3xl font-bold text-foreground">
-                  {Math.round(dummyClasses.reduce((sum, cls) => sum + cls.students, 0) / dummyClasses.length)}
-                </p>
-              </div>
-              <div className="h-12 w-12 bg-warning/10 rounded-lg flex items-center justify-center">
-                <Users className="h-6 w-6 text-warning" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Stats */}
+      <StatsGrid stats={stats} />
 
       {/* Classes Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {dummyClasses.map((classItem) => (
-          <Card key={classItem.id} className="card-gradient hover-scale">
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div className="space-y-1">
-                  <CardTitle className="text-lg">{classItem.name}</CardTitle>
-                  <CardDescription className="font-mono text-sm">{classItem.code}</CardDescription>
+        {mockCourses.map((course) => {
+          const teacher = mockTeachers.find(t => t.id === course.teacherId);
+          const enrollmentPercentage = (course.studentsEnrolled / course.maxStudents) * 100;
+          
+          return (
+            <Card key={course.id} className="hover-scale card-gradient group">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                      {course.name}
+                    </CardTitle>
+                    <CardDescription className="mt-1">
+                      <code className="text-xs bg-muted px-2 py-1 rounded">{course.code}</code>
+                    </CardDescription>
+                  </div>
+                  <Badge className={course.status === 'active' ? 'badge-success' : 'badge-secondary'}>
+                    {course.status}
+                  </Badge>
                 </div>
-                <Badge className={classItem.color}>{classItem.subject}</Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Users className="h-4 w-4" />
-                  <span>{classItem.students} students</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4" />
-                  <span>{classItem.schedule}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4" />
-                  <span>{classItem.room}</span>
-                </div>
-              </div>
+              </CardHeader>
               
-              <div className="flex gap-2 pt-4">
-                <Button variant="outline" size="sm" className="flex-1 hover-scale">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Schedule
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1 hover-scale">
-                  <Users className="h-4 w-4 mr-2" />
-                  Students
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              <CardContent className="space-y-4">
+                {/* Teacher Info */}
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-10 w-10">
+                    <AvatarImage src={teacher?.avatar} />
+                    <AvatarFallback>
+                      {teacher?.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-medium text-sm">{course.teacher}</p>
+                    <p className="text-xs text-muted-foreground">{teacher?.department}</p>
+                  </div>
+                </div>
+
+                {/* Course Details */}
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="h-4 w-4" />
+                    <span>{course.schedule}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Calendar className="h-4 w-4" />
+                    <span>{course.duration} • {course.credits} credits</span>
+                  </div>
+                </div>
+
+                {/* Enrollment Progress */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Enrollment</span>
+                    <span className="font-medium">
+                      {course.studentsEnrolled}/{course.maxStudents}
+                    </span>
+                  </div>
+                  <Progress value={enrollmentPercentage} className="h-2" />
+                  <p className="text-xs text-muted-foreground">
+                    {enrollmentPercentage.toFixed(0)}% capacity
+                  </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-2 pt-2">
+                  <Button size="sm" className="flex-1">
+                    View Details
+                  </Button>
+                  <Button size="sm" variant="outline">
+                    Manage
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
+
+      {/* Quick Actions */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Quick Actions</CardTitle>
+          <CardDescription>Common class management tasks</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Button className="btn-primary h-auto p-4 flex flex-col items-center gap-2">
+              <BookOpen className="h-6 w-6" />
+              Create New Class
+            </Button>
+            <Button className="btn-secondary h-auto p-4 flex flex-col items-center gap-2">
+              <Users className="h-6 w-6" />
+              Manage Enrollments
+            </Button>
+            <Button className="btn-secondary h-auto p-4 flex flex-col items-center gap-2">
+              <Calendar className="h-6 w-6" />
+              Schedule Classes
+            </Button>
+            <Button className="btn-secondary h-auto p-4 flex flex-col items-center gap-2">
+              <TrendingUp className="h-6 w-6" />
+              View Analytics
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
