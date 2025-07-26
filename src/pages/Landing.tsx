@@ -38,189 +38,206 @@ const Landing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-primary/10 relative overflow-hidden">
-      {/* Galactic academic background */}
+    <div className="min-h-screen hero-gradient relative overflow-hidden">
+      {/* Professional galactic background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-1/4 w-96 h-96 bg-gradient-radial from-primary/10 to-transparent rounded-full floating blur-2xl"></div>
-        <div className="absolute top-32 right-1/4 w-80 h-80 bg-gradient-radial from-primary-light/8 to-transparent rounded-full floating blur-2xl" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-gradient-radial from-primary-glow/6 to-transparent rounded-full floating blur-2xl" style={{animationDelay: '4s'}}></div>
+        {/* Large floating nebulae */}
+        <div className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-gradient-radial from-primary/8 via-primary-light/4 to-transparent rounded-full floating blur-3xl opacity-70"></div>
+        <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-gradient-radial from-primary-glow/6 via-primary/3 to-transparent rounded-full floating blur-3xl opacity-60" style={{animationDelay: '3s'}}></div>
+        <div className="absolute -bottom-32 left-1/4 w-[550px] h-[550px] bg-gradient-radial from-primary-light/5 via-primary/2 to-transparent rounded-full floating blur-3xl opacity-50" style={{animationDelay: '6s'}}></div>
         
-        {/* Stellar particles */}
-        <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary/40 rounded-full stellar-drift" style={{animationDelay: '0s'}}></div>
-        <div className="absolute top-1/2 left-20 w-1 h-1 bg-primary-light/60 rounded-full stellar-drift" style={{animationDelay: '3s'}}></div>
-        <div className="absolute top-3/4 left-32 w-1.5 h-1.5 bg-primary-glow/50 rounded-full stellar-drift" style={{animationDelay: '6s'}}></div>
+        {/* Constellation particles */}
+        <div className="absolute top-20 left-1/5 w-3 h-3 bg-primary/30 rounded-full stellar-drift opacity-80" style={{animationDelay: '0s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-primary-light/40 rounded-full stellar-drift opacity-70" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-2/3 left-1/3 w-2.5 h-2.5 bg-primary-glow/35 rounded-full stellar-drift opacity-75" style={{animationDelay: '4s'}}></div>
+        <div className="absolute bottom-1/4 right-1/5 w-1.5 h-1.5 bg-primary/45 rounded-full stellar-drift opacity-85" style={{animationDelay: '7s'}}></div>
+        
+        {/* Grid overlay for professional look */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       </div>
 
-      {/* Header */}
-      <header className="container mx-auto px-4 py-6 relative z-10">
-        <nav className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 animate-fade-in">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center stellar-glow cosmic-pulse">
-              <GraduationCap className="w-7 h-7 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold cosmic-text">ELCON Academy</h1>
-              <p className="text-xs text-muted-foreground">Building Young People in God's Light</p>
-            </div>
+      {/* Professional Header */}
+      <header className="relative z-10">
+        <div className="glass-card border-0 border-b border-border/20">
+          <div className="container mx-auto px-6 py-4">
+            <nav className="flex items-center justify-between">
+              <div className="flex items-center space-x-4 animate-fade-in">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary via-primary-light to-primary-glow rounded-2xl flex items-center justify-center shadow-lg">
+                  <GraduationCap className="w-8 h-8 text-primary-foreground drop-shadow-sm" />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-gradient">ELCON Academy</h1>
+                  <p className="text-sm text-muted-foreground font-medium">Building Young People in God's Light</p>
+                </div>
+              </div>
+              <Button 
+                onClick={() => navigate('/login')}
+                className="btn-professional px-8 py-3 rounded-xl font-semibold"
+              >
+                Portal Login
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </nav>
           </div>
-          <Button 
-            onClick={() => navigate('/login')}
-            className="btn-primary hover-scale relative z-10"
-          >
-            Portal Login
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
-        </nav>
+        </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+      {/* Professional Hero Section */}
+      <section className="container mx-auto px-6 py-24 relative z-10">
+        <div className="text-center max-w-6xl mx-auto">
           <div className="animate-fade-in">
-            <span className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 text-primary text-sm font-medium mb-8 golden-glow backdrop-blur-sm border border-primary/20">
-              <Star className="w-4 h-4 mr-2" />
+            <span className="inline-flex items-center px-8 py-4 rounded-2xl glass-card text-primary text-base font-semibold mb-12 shadow-lg">
+              <Star className="w-5 h-5 mr-3" />
               Light Christian Outreach
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 animate-fade-in animation-delay-200">
+          <h1 className="text-6xl md:text-8xl font-bold mb-12 animate-fade-in animation-delay-200">
             Welcome to{' '}
-            <span className="cosmic-text cosmic-pulse">
+            <span className="text-gradient block md:inline">
               ELCON Academy
             </span>
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-400">
-            Empowering young minds to grow <strong className="text-primary">Academically</strong>, <strong className="text-primary">Financially</strong>, 
-            <strong className="text-primary"> Socially</strong>, and <strong className="text-primary">Spiritually</strong> through our comprehensive 
+          <p className="text-2xl text-muted-foreground mb-16 max-w-4xl mx-auto leading-relaxed animate-fade-in animation-delay-400 font-light">
+            Empowering young minds to grow <strong className="text-primary font-semibold">Academically</strong>, <strong className="text-primary font-semibold">Financially</strong>, 
+            <strong className="text-primary font-semibold"> Socially</strong>, and <strong className="text-primary font-semibold">Spiritually</strong> through our comprehensive 
             Christian education platform.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in animation-delay-600">
+          <div className="flex flex-col lg:flex-row gap-8 justify-center animate-fade-in animation-delay-600 max-w-2xl mx-auto">
             <Button 
               size="lg" 
-              className="btn-primary text-lg px-12 py-6 relative group overflow-hidden"
+              className="btn-professional text-xl px-16 py-8 rounded-2xl relative group overflow-hidden"
               onClick={() => navigate('/login')}
             >
-              <span className="relative z-10">Access Student Portal</span>
-              <ArrowRight className="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="relative z-10 font-semibold">Access Student Portal</span>
+              <ArrowRight className="w-6 h-6 ml-3 relative z-10 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg" 
-              className="btn-stellar text-lg px-12 py-6"
+              variant="outline"
+              className="glass-card text-xl px-16 py-8 rounded-2xl font-semibold border-2 hover:border-primary/50 hover:bg-primary/5"
             >
-              <Globe className="w-5 h-5 mr-2" />
+              <Globe className="w-6 h-6 mr-3" />
               Learn More
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Professional Stats Section */}
+      <section className="container mx-auto px-6 py-20 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover-scale animate-fade-in card-gradient group" style={{animationDelay: `${800 + index * 100}ms`}}>
-              <CardContent className="p-8">
-                <div className="text-4xl md:text-5xl font-bold divine-text mb-3 group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
-                <div className="text-muted-foreground font-medium text-sm uppercase tracking-wider">{stat.label}</div>
+            <Card key={index} className="text-center card-gradient group animate-fade-in border-0 rounded-3xl overflow-hidden" style={{animationDelay: `${800 + index * 100}ms`}}>
+              <CardContent className="p-12 relative">
+                <div className="text-5xl lg:text-6xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-500">{stat.number}</div>
+                <div className="text-muted-foreground font-semibold text-base uppercase tracking-widest">{stat.label}</div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in">
-            Four Pillars of <span className="divine-text">Excellence</span>
+      {/* Professional Features Section */}
+      <section className="container mx-auto px-6 py-24 relative z-10">
+        <div className="text-center mb-24">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-8 animate-fade-in">
+            Four Pillars of <span className="text-gradient">Excellence</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in animation-delay-200">
-            Our holistic approach ensures comprehensive development of every student
+          <div className="section-divider w-32 mx-auto mb-8"></div>
+          <p className="text-2xl text-muted-foreground max-w-3xl mx-auto animate-fade-in animation-delay-200 font-light leading-relaxed">
+            Our holistic approach ensures comprehensive development of every student through 
+            integrated academic, spiritual, and life skills education
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-10 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group hover-scale card-gradient animate-fade-in relative overflow-hidden"
+              className="group card-gradient animate-fade-in relative overflow-hidden border-0 rounded-3xl"
               style={{animationDelay: `${400 + index * 150}ms`}}
             >
-              <CardContent className="p-10 text-center relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-500 golden-glow">
-                  <feature.icon className="w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <CardContent className="p-12 text-center relative z-10">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary/15 to-primary-light/10 rounded-3xl flex items-center justify-center mx-auto mb-10 group-hover:from-primary/25 group-hover:to-primary-light/20 transition-all duration-500 shadow-lg">
+                  <feature.icon className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-6 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg font-light">{feature.description}</p>
               </CardContent>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Card>
           ))}
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <Card className="max-w-5xl mx-auto card-gradient animate-fade-in relative overflow-hidden">
-            <CardContent className="p-16 text-center relative z-10">
-              <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary/80 rounded-3xl flex items-center justify-center mx-auto mb-10 golden-glow floating">
-                <Heart className="w-12 h-12 text-primary-foreground" />
+      {/* Professional Mission Section */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-primary-light/5"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <Card className="max-w-6xl mx-auto glass-card border-0 rounded-3xl overflow-hidden">
+            <CardContent className="p-20 text-center relative">
+              <div className="w-32 h-32 bg-gradient-to-br from-primary to-primary-dark rounded-3xl flex items-center justify-center mx-auto mb-12 shadow-xl floating">
+                <Heart className="w-16 h-16 text-primary-foreground" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-                Our <span className="divine-text">Mission</span>
+              <h2 className="text-5xl lg:text-6xl font-bold mb-12">
+                Our <span className="text-gradient">Mission</span>
               </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+              <div className="section-divider w-24 mx-auto mb-12"></div>
+              <p className="text-2xl text-muted-foreground leading-relaxed max-w-5xl mx-auto font-light">
                 At ELCON Academy, we are committed to building young people in God's light, 
                 providing a nurturing environment where students can flourish academically, 
                 develop financial wisdom, build meaningful relationships, and grow in their 
                 spiritual journey with Christ.
               </p>
             </CardContent>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
           </Card>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="container mx-auto px-4 py-24 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8 animate-fade-in">
-            Ready to Begin Your <span className="divine-text">Journey</span>?
+      {/* Professional CTA Section */}
+      <section className="container mx-auto px-6 py-32 relative z-10">
+        <div className="text-center max-w-5xl mx-auto">
+          <h2 className="text-5xl lg:text-7xl font-bold mb-12 animate-fade-in">
+            Ready to Begin Your <span className="text-gradient">Journey</span>?
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 animate-fade-in animation-delay-200 max-w-2xl mx-auto">
-            Join our community of learners and discover your potential in God's light.
+          <div className="section-divider w-32 mx-auto mb-12"></div>
+          <p className="text-2xl text-muted-foreground mb-16 animate-fade-in animation-delay-200 max-w-3xl mx-auto font-light leading-relaxed">
+            Join our community of learners and discover your potential in God's light through 
+            comprehensive Christian education.
           </p>
           <Button 
             size="lg" 
-            className="btn-primary text-xl px-16 py-8 animate-fade-in animation-delay-400 group relative overflow-hidden"
+            className="btn-professional text-2xl px-20 py-10 animate-fade-in animation-delay-400 rounded-2xl font-semibold group"
             onClick={() => navigate('/login')}
           >
             <span className="relative z-10">Access Portal Now</span>
-            <ArrowRight className="w-6 h-6 ml-3 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <ArrowRight className="w-7 h-7 ml-4 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
           </Button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-r from-primary/10 via-background to-primary/10 border-t border-primary/20 py-16 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center space-x-4 mb-6 md:mb-0">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center golden-glow">
-                <GraduationCap className="w-7 h-7 text-primary-foreground" />
+      {/* Professional Footer */}
+      <footer className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary-light/3"></div>
+        <div className="glass-card border-0 border-t border-border/30 relative">
+          <div className="container mx-auto px-6 py-20 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center justify-between">
+              <div className="flex items-center space-x-6 mb-8 lg:mb-0">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary via-primary-light to-primary-glow rounded-2xl flex items-center justify-center shadow-lg">
+                  <GraduationCap className="w-9 h-9 text-primary-foreground" />
+                </div>
+                <div>
+                  <div className="font-bold text-foreground text-2xl text-gradient">ELCON Academy</div>
+                  <div className="text-lg text-muted-foreground font-medium">Building Young People in God's Light</div>
+                </div>
               </div>
-              <div>
-                <div className="font-bold text-foreground text-lg divine-text">ELCON Academy</div>
-                <div className="text-sm text-muted-foreground">Building Young People in God's Light</div>
+              <div className="text-base text-muted-foreground font-medium">
+                © 2024 ELCON Academy. All rights reserved.
               </div>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              © 2024 ELCON Academy. All rights reserved.
             </div>
           </div>
         </div>
