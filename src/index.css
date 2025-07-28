@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,6 +32,16 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
     --ring: 221 83% 33%;
     --radius: 0.75rem;
     
+    /* Success, Warning, Grade colors */
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 215 25% 15%;
+    --grade-excellent: 142 76% 36%;
+    --grade-good: 45 93% 47%;
+    --grade-average: 25 95% 53%;
+    --grade-poor: 0 84% 60%;
+    
     /* Galactic academic gradients */
     --gradient-cosmic: linear-gradient(135deg, hsl(221 83% 33%), hsl(221 70% 50%), hsl(240 100% 95%));
     --gradient-stellar: linear-gradient(180deg, hsl(240 23% 97%), hsl(221 83% 33% / 0.1));
@@ -42,57 +53,60 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
     --shadow-academic: 0 10px 25px -5px hsl(221 83% 33% / 0.1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 60 9.1% 97.8%;
-    --foreground: 20 14.3% 4.1%;
-    --card: 60 9.1% 97.8%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 60 9.1% 97.8%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 20.5 90.2% 48.2%;
-    --primary-foreground: 60 9.1% 97.8%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 20.5 90.2% 48.2%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222.2 84% 4.9%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 216 34% 17%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     
-    /* Light mode gradients */
-    --gradient-divine: linear-gradient(135deg, hsl(20.5 90.2% 48.2%), hsl(45 100% 60%));
-    --gradient-heavenly: linear-gradient(135deg, hsl(20.5 90.2% 48.2% / 0.1), hsl(45 100% 95%));
-    --gradient-peaceful: linear-gradient(180deg, hsl(var(--background)), hsl(20.5 90.2% 48.2% / 0.05));
+    /* Success, Warning, Grade colors for dark mode */
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 215 25% 15%;
+    --grade-excellent: 142 76% 36%;
+    --grade-good: 45 93% 47%;
+    --grade-average: 25 95% 53%;
+    --grade-poor: 0 84% 60%;
     
-    /* Light mode shadows */
-    --shadow-divine: 0 25px 50px -12px hsl(20.5 90.2% 48.2% / 0.15);
+    /* Dark mode gradients */
+    --gradient-divine: linear-gradient(135deg, hsl(210 40% 98%), hsl(216 34% 17%));
+    --gradient-heavenly: linear-gradient(135deg, hsl(210 40% 98% / 0.1), hsl(216 34% 17%));
+    --gradient-peaceful: linear-gradient(180deg, hsl(224 71% 4%), hsl(210 40% 98% / 0.05));
+    
+    /* Dark mode shadows */
+    --shadow-divine: 0 25px 50px -12px hsl(210 40% 98% / 0.15);
     --shadow-soft: 0 10px 25px -5px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 30px hsl(20.5 90.2% 48.2% / 0.2);
+    --shadow-glow: 0 0 30px hsl(210 40% 98% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -115,12 +129,44 @@ All colors MUST be HSL. Brand colors: Blue (#1E3A8A) and White
 }
 
 @layer components {
-  /* Academic galactic theme */
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary via-primary-light to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 font-medium px-6 py-3 rounded-lg;
-    box-shadow: var(--shadow-stellar);
+  /* Hero gradient for dashboard headers */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    color: hsl(var(--primary-foreground));
   }
 
+  /* Stats card styling */
+  .stats-card {
+    @apply bg-card border-border hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border transition-all duration-300;
+  }
+
+  /* Grade badges */
+  .grade-excellent {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .grade-good {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .grade-average {
+    @apply bg-orange-500/10 text-orange-600 border-orange-500/20;
+  }
+
+  .grade-poor {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  /* Academic galactic theme */
   .btn-stellar {
     @apply bg-gradient-to-r from-white/10 to-primary/20 text-primary border border-primary/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/30 transition-all duration-500 hover:scale-105;
     box-shadow: var(--shadow-cosmic);
