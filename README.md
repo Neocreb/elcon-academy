@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/372dfe53-cc28-409d-8e76-61b930097a9e
+**URL**: https://elcon-academy.lovable.app/
 
 ## How can I edit this code?
 
